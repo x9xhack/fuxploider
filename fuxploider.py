@@ -31,8 +31,9 @@ coloredlogs.install(
 logging.getLogger("requests").setLevel(logging.ERROR)
 
 #################### TEMPLATES DEFINITION HERE ######################
-templatesFolder = "payloads"
-with open("templates.json", "r", encoding='utf-8') as fd:
+base_dir = os.path.dirname(os.path.realpath(__file__))
+templatesFolder = os.path.join(base_dir, "payloads")
+with open(os.path.join(base_dir, "templates.json"), "r", encoding='utf-8') as fd:
     templates = json.loads(fd.read())
 
 #######################################################################
